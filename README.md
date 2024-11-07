@@ -28,9 +28,9 @@ I am not a programmer nor am I an electronics engineer, I slapped this together 
 ## Hardware:
 For my example I chose an ESP32-C3, namely because I already had one but also because the ESP32-C3 has 2 hardware uart interfaces and the ability to operate in inverted mode which is a requirement to communicate with these batteries. As well as this the ESP32-C3 also has Bluetooth and WiFi giving multiple options to present the data.
 
-The below circuit was used in conjunction with the ESP32-C3 to interface with the battery. These batteries operate on 5V logic and the ESP32 3.3v so the logic level converter is a must.
+The below circuit was used in conjunction with the ESP32-C3 to interface with the battery. These batteries operate on 5V logic and the ESP32 3.3v so the logic level converter is a must. Note the level shifter used must have a pinout as shown below in order for the circuit to function correctly, the 4 channel "bi directional" type will not work.
 
-![<diagram>](https://github.com/twaymouth/XGT-Tester/blob/main/Circuit.png)
+![<diagram>](https://github.com/twaymouth/XGT-Tester/blob/main/levelshift.png)
 
 The circuit should be connected to your chosen tx / rx pins and the GND / DT pins on the battery as per the picture below:
 
