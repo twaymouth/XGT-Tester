@@ -58,11 +58,12 @@ int8_t sendBattery(uint8_t *buf, uint8_t *command, uint8_t cmdLength, uint8_t *r
   uint8_t attempts = 0;
   while (*rxLength == 0 && attempts <= 1) { //allow 2x attempts for each command though battery almost always responds first time. 
     //if (attempts) { Serial.println("retry"); }
+    if (attempts > 0){delay(50);};
     attempts++;
     Serial1.write(command, cmdLength); //write command to battery
     uart_wait_tx_done(UART_NUM_1, 500); //wait until tx buffer is empty, timeout of 500 should never be reached unless there is some sort of hardware error. 
     uart_flush(UART_NUM_1); //flush uart buffer
-    *rxLength = uart_read_bytes(UART_NUM_1, buf, 32, 15);  //takes battery around 10ms to respond to a command only reading max of 32 byte response as this is all that is needed however battery can technically send up to 256 bytes 
+    *rxLength = uart_read_bytes(UART_NUM_1, buf, 32, 20);  //takes battery around 10ms to respond to a command only reading max of 32 byte response as this is all that is needed however battery can technically send up to 256 bytes 
   }
 
   if (*rxLength < 8) {
@@ -84,7 +85,8 @@ bool getData() { //get required data from battery
   uint8_t rxLength = 0;
   int8_t error = 0;
   uint8_t buffer[32] = { 0 };
-
+  memset(model, 0, sizeof(model));
+  
   Serial1.write(0x0); //write 0x0 to wake battery (not sure if actually needed but whatever, does not seem to cause issues)
   delay(70);
 
@@ -95,7 +97,7 @@ bool getData() { //get required data from battery
           error += sendBattery(buffer, modelCmd, sizeof(modelCmd), &rxLength); //send requested command to battery, if this succceds should return 0;
           rxLength -= ((buffer[3] & 0xF) + 3);  //remove number of trailing FF bytes and CRC bytes and one extra becuase array is 0 based i.e. 32 bytes recieved = array locations 0 to 31.
           for (int i = 0; i < 8; i++) {
-            sprintf(model + strlen(model), "%c", buffer[rxLength - i]);
+            sprintf(model + i, "%c", buffer[rxLength - i]);
           }
         }
         break;
