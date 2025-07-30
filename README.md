@@ -34,7 +34,7 @@ The below circuit was used in conjunction with the ESP32-C3 to interface with th
 
 The circuit should be connected to your chosen tx / rx pins and the GND / DT pins on the battery as per the picture below:
 
-<img src="https://github.com/twaymouth/XGT-Tester/blob/main/Battery.jpg" width="60%" height="60%">
+<img src="https://github.com/twaymouth/XGT-Tester/blob/main/Battery_1.jpg" width="60%" height="60%">
 
 
 ## Software:
