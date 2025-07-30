@@ -30,7 +30,7 @@ For my example I chose an ESP32-C3, namely because I already had one but also be
 
 The below circuit was used in conjunction with the ESP32-C3 to interface with the battery. These batteries operate on 5V logic and the ESP32 3.3v so the logic level converter is a must. Note the level shifter used must have a pinout as shown below in order for the circuit to function correctly, the 4 channel "bi directional" type will not work.
 
-![<diagram>](https://github.com/twaymouth/XGT-Tester/blob/main/levelshift.png)
+![<diagram>](https://github.com/twaymouth/XGT-Tester/blob/main/levelshift_1.png)
 
 The circuit should be connected to your chosen tx / rx pins and the GND / DT pins on the battery as per the picture below:
 
