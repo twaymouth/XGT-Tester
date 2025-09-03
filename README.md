@@ -13,7 +13,9 @@ Basic tester for Makita's line of 40V XGT batteries which retrieves the followin
    
   - Charge
    
-   - Temperature
+   - both temperature sensors
+  
+   - lock status
    
   - Pack Voltage
    
@@ -76,3 +78,7 @@ Cell 7 - 4.1 v
 Cell 8 - 4.1 v
 
 Cell 9 - 4.1 v
+
+## Reset:
+
+Pressing and holding the button for more than 5 seconds before releasing will attempt to command the battery to do a factory reset which may allow it to recover from certian faults, caution only do this if really necessary, it will reset all data including charge counts etc. Thanks to https://github.com/no-body-in-particular/m5din-makita-xgt
