@@ -81,4 +81,10 @@ Cell 9 - 4.1 v
 
 ## Reset:
 
-Pressing and holding the button for more than 5 seconds before releasing will attempt to command the battery to do a factory reset which may allow it to recover from certian faults, caution only do this if really necessary, it will reset all data including charge counts etc. Thanks to https://github.com/no-body-in-particular/m5din-makita-xgt
+Pressing and holding the button for more than 5 seconds before releasing will attempt to command the battery to do a factory reset which may allow it to recover from certain faults.
+ 
+Only do this if really necessary and as an absolute last resort, if you have a battery that has stopped charging or has developed some other issue this has usually happened for a reason. 
+
+The reset command will reset all data including charge counts etc and may result in the BMS being irreparably damaged, you have been warned. 
+
+Thanks to https://github.com/no-body-in-particular/m5din-makita-xgt
