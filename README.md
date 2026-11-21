@@ -32,7 +32,7 @@ For my example I chose an ESP32-C3, namely because I already had one but also be
 
 Any of the below example circuits should be suitable to interface with the battery. These batteries operate on 5V logic and the ESP32 3.3v so the logic level converter is a must. 
 
-Note I have found level converters vary in quality and component values used may differ between brands, option 1 and 2 are the most likely to work, option 3 may work but it will depend on how the specific level shifter is constructed. 
+Note I have found level converters vary in quality and component values used may differ between brands, option 1 and 2 are the most likely to work, option 3 may work but it will depend on how the specific level shifter is constructed. R1 can be anywhere from 100 - 470 ohms it simply exists to limit current from the battery and prevent damage in event of a wiring issue, you can even leave it out if need be. 
 
 #### Option 1 - bidirectional level shifter used for TX, resistive divider used for RX.
 ![<diagram>](https://github.com/twaymouth/XGT-Tester/blob/main/levelshift_2.png)
