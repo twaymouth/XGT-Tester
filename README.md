@@ -30,11 +30,18 @@ I am not a programmer nor am I an electronics engineer, I slapped this together 
 ## Hardware:
 For my example I chose an ESP32-C3, namely because I already had one but also because the ESP32-C3 has 2 hardware uart interfaces and the ability to operate in inverted mode which is a requirement to communicate with these batteries. As well as this the ESP32-C3 also has Bluetooth and WiFi giving multiple options to present the data.
 
-The below circuit was used in conjunction with the ESP32-C3 to interface with the battery. These batteries operate on 5V logic and the ESP32 3.3v so the logic level converter is a must. Note the level shifter used must have a pinout as shown below in order for the circuit to function correctly, the 4 channel "bi directional" type will not work.
+Any of the below example circuits should be suitable to interface with the battery. These batteries operate on 5V logic and the ESP32 3.3v so the logic level converter is a must. 
 
+Note I have found level converters vary in quality and component values used may differ between brands, option 1 and 2 are the most likely to work, option 3 may work but it will depend on how the specific level shifter is constructed. 
+
+#### Option 1 - bidirectional level shifter used for TX, resistive divider used for RX.
+![<diagram>](https://github.com/twaymouth/XGT-Tester/blob/main/levelshift_2.png)
+#### Option 2 - unidirectional level shifter used for TX, resistive divider used for RX.
+![<diagram>](https://github.com/twaymouth/XGT-Tester/blob/main/levelshift_3.png)
+#### Option 3 - unidirectional level shifter used alone.
 ![<diagram>](https://github.com/twaymouth/XGT-Tester/blob/main/levelshift_1.png)
 
-The circuit should be connected to your chosen tx / rx pins and the GND / DT pins on the battery as per the picture below:
+The circuit should be connected to your chosen tx / rx pins and the GND / TR pins on the battery as per the picture below:
 
 <img src="https://github.com/twaymouth/XGT-Tester/blob/main/Battery_1.jpg" width="60%" height="60%">
 
@@ -83,7 +90,7 @@ Cell 9 - 4.1 v
 
 Pressing and holding the button for more than 5 seconds before releasing will attempt to command the battery to do a factory reset which may allow it to recover from certain faults.
  
-Only do this if really necessary and as an absolute last resort, if you have a battery that has stopped charging or has developed some other issue this has usually happened for a reason. 
+Only do this if really necessary and as an absolute last resort, do not do it just for fun as it will likely brick your batery. If you have a battery that has stopped charging or has developed some other issue this has usually happened for a reason. 
 
 The reset command will reset all data including charge counts etc and may result in the BMS being irreparably damaged, you have been warned. 
 
