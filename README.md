@@ -90,7 +90,7 @@ Cell 9 - 4.1 v
 
 Pressing and holding the button for more than 5 seconds before releasing will attempt to command the battery to do a factory reset which may allow it to recover from certain faults.
  
-Only do this if really necessary and as an absolute last resort, do not do it just for fun as it will likely brick your batery. If you have a battery that has stopped charging or has developed some other issue this has usually happened for a reason. 
+Only do this if really necessary and as an absolute last resort, do not do it just for fun as it will likely brick your battery. If you have a battery that has stopped charging or has developed some other issue this has usually happened for a reason. 
 
 The reset command will reset all data including charge counts etc and may result in the BMS being irreparably damaged, you have been warned. 
 
